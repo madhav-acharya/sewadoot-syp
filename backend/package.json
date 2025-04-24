@@ -11,11 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@adminjs/bundler": "^3.0.0",
     "@adminjs/design-system": "^4.1.1",
-    "@adminjs/express": "^6.1.1",
-    "@adminjs/mongoose": "^4.1.0",
-    "adminjs": "^7.8.15",
     "bcryptjs": "^3.0.2",
     "chart.js": "^4.4.8",
     "cloudinary": "^1.41.3",

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3"
+  }
+}
