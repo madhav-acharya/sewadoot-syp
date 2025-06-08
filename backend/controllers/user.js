@@ -127,6 +127,26 @@ export const getCurrentUser = async (req, res) => {
   }
 };
 
+export const getUsersByRole = async (req, res) => {
+  try {
+    const { role } = req.body;
+    if (!role) {
+      console.log("Role is needed");
+      return res.status(404).json({ message: 'Provide the role' });
+    }
+    const user = await User.find({role: role})
+
+    if(!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Error occured while getting user");
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
