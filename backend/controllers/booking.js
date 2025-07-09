@@ -65,6 +65,20 @@ export const getBookingById = async (req, res) => {
   }
 };
 
+export const getBookingByclientId = async (req, res) => {
+  try {
+    const booking = await Booking.find({client:req.params.id}).populate('client freelancer', 'firstName lastName email profileImage');
+
+    if (!booking) {
+      return res.status(404).json({ message: 'Booking not found' });
+    }
+
+    res.status(200).json(booking);
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error', error: error.message });
+  }
+};
+
 export const getBookingByService = async (req, res) => {
   try {
     const booking = await Booking.find({service: req.body.service}).populate('client freelancer', 'firstName lastName email profileImage');
